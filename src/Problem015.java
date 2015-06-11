@@ -18,9 +18,9 @@ public class Problem015 {
 
 				for (int j = 0; j < n; j++) {
 					result += sum[j];
-					// System.out.println(sum[j]);
+					
 				}
-				// System.out.println("->");
+				
 			}
 
 			System.out.println(result + "  --  " + i);
