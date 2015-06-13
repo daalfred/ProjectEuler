@@ -1,6 +1,3 @@
-/**
- * Created by michael on 6/11/15.
- */
 
 //Get sum of digits of n!
 
