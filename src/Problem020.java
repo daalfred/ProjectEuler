@@ -1,11 +1,10 @@
-
-import java.math.*;
-
 /**
  * Created by michael on 6/11/15.
  */
 
 //Get sum of digits of n!
+
+import java.math.*;
 
 public class Problem020 {
     static void rechnen(int n){
@@ -22,10 +21,9 @@ public class Problem020 {
 
         char[] digits = numstring.toCharArray();
 
-        
-        for(int i = 0; i < digits.length; i++) {
+
+        for(int i = 0; i < digits.length; i++)
             sum += Integer.parseInt("" + digits[i]);
-        }
 
         System.out.println(sum);
     }
