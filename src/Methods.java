@@ -24,11 +24,11 @@ public class Methods {
     }
 
     static long getSumOfDivs(long num) {
-        long sum = 0;
+        long sum = 1;
 
-        for (int i = 1; i < num; i++) {
+        for (int i = 2; i <= Math.sqrt((double) num); i++) {
             if (num % i == 0)
-                sum += i;
+                sum += (i + (num / i));
         }
 
         return sum;
