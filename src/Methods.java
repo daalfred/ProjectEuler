@@ -1,127 +1,139 @@
 public class Methods {
-	static int[] addToIntArray(int[] array, int num) {
-		int[] newArray = new int[array.length + 1];
+    static int[] addToIntArray(int[] array, int num) {
+        int[] newArray = new int[array.length + 1];
 
-		for (int i = 0; i < array.length; i++) {
-			newArray[i] = array[i];
-		}
+        for (int i = 0; i < array.length; i++) {
+            newArray[i] = array[i];
+        }
 
-		newArray[array.length] = num;
+        newArray[array.length] = num;
 
-		return newArray;
+        return newArray;
 
-	}
+    }
 
-	static boolean[] extendBooleanArray(boolean[] array) {
-		boolean[] newArray = new boolean[array.length * array.length];
+    static boolean[] extendBooleanArray(boolean[] array) {
+        boolean[] newArray = new boolean[array.length * array.length];
 
-		for (int i = 0; i < array.length; i++) {
-			newArray[i] = array[i];
-		}
+        for (int i = 0; i < array.length; i++) {
+            newArray[i] = array[i];
+        }
 
-		return newArray;
+        return newArray;
 
-	}
+    }
 
-	static int getNoOfDivs(long num) {
-		int[] pfpws = Methods.getPrimeFactorPowers(num);
-		int noOfDivs = 1;
+    static long getSumOfDivs(long num) {
+        long sum = 0;
 
-		for (int i = 0; i < pfpws.length; i++)
-			noOfDivs *= (pfpws[i] + 1);
+        for (int i = 1; i < num; i++) {
+            if (num % i == 0)
+                sum += i;
+        }
 
-		return noOfDivs;
-	}
+        return sum;
 
-	static int[] getPrimeFactors(long num) {
+    }
 
-		boolean solved = false;
-		long prod = 1;
-		long prime = 2;
-		long i = num;
-		int pow = 0;
-		int[] primefactors = new int[0];
+    static int getNoOfDivs(long num) {
+        int[] pfpws = Methods.getPrimeFactorPowers(num);
+        int noOfDivs = 1;
 
-		while ((!solved) && (prime < (i + 1))) {
-			if (i % prime == 0) {
-				while (i % prime == 0) {
-					i = i / prime;
-					prod *= prime;
-					pow++;
-				}
+        for (int i = 0; i < pfpws.length; i++)
+            noOfDivs *= (pfpws[i] + 1);
 
-				primefactors = Methods.addToIntArray(primefactors, (int) prime);
-			}
+        return noOfDivs;
+    }
 
-			prime++;
-			pow = 0;
+    static int[] getPrimeFactors(long num) {
 
-			if (prod == num)
-				solved = true;
-		}
+        boolean solved = false;
+        long prod = 1;
+        long prime = 2;
+        long i = num;
+        int pow = 0;
+        int[] primefactors = new int[0];
 
-		return primefactors;
+        while ((!solved) && (prime < (i + 1))) {
+            if (i % prime == 0) {
+                while (i % prime == 0) {
+                    i = i / prime;
+                    prod *= prime;
+                    pow++;
+                }
 
-	}
+                primefactors = Methods.addToIntArray(primefactors, (int) prime);
+            }
 
-	static int[] getPrimeFactorPowers(long num) {
+            prime++;
+            pow = 0;
 
-		boolean solved = false;
-		long prod = 1;
-		long prime = 2;
-		long i = num;
-		int pow = 0;
-		int[] primefactorpows = new int[0];
+            if (prod == num)
+                solved = true;
+        }
 
-		while ((!solved) && (prime < (i + 1))) {
-			if (i % prime == 0) {
-				while (i % prime == 0) {
-					i = i / prime;
-					prod *= prime;
-					pow++;
-				}
+        return primefactors;
 
-				primefactorpows = Methods.addToIntArray(primefactorpows, pow);
-			}
+    }
 
-			prime++;
-			pow = 0;
+    static int[] getPrimeFactorPowers(long num) {
 
-			if (prod == num)
-				solved = true;
-		}
+        boolean solved = false;
+        long prod = 1;
+        long prime = 2;
+        long i = num;
+        int pow = 0;
+        int[] primefactorpows = new int[0];
 
-		return primefactorpows;
+        while ((!solved) && (prime < (i + 1))) {
+            if (i % prime == 0) {
+                while (i % prime == 0) {
+                    i = i / prime;
+                    prod *= prime;
+                    pow++;
+                }
 
-	}
+                primefactorpows = Methods.addToIntArray(primefactorpows, pow);
+            }
 
-	static int getNoOfPrimeFactors(long num) {
+            prime++;
+            pow = 0;
 
-		boolean solved = false;
-		long prod = 1;
-		long prime = 2;
-		long i = num;
-		int pow = 0;
-		int nopfs = 0;
+            if (prod == num)
+                solved = true;
+        }
 
-		while ((!solved) && (prime < (i + 1))) {
-			if (i % prime == 0) {
-				while (i % prime == 0) {
-					i = i / prime;
-					prod *= prime;
-				}
+        return primefactorpows;
 
-				nopfs++;
-			}
+    }
 
-			prime++;
-			pow = 0;
+    static int getNoOfPrimeFactors(long num) {
 
-			if (prod == num)
-				solved = true;
-		}
+        boolean solved = false;
+        long prod = 1;
+        long prime = 2;
+        long i = num;
+        int pow = 0;
+        int nopfs = 0;
 
-		return nopfs;
+        while ((!solved) && (prime < (i + 1))) {
+            if (i % prime == 0) {
+                while (i % prime == 0) {
+                    i = i / prime;
+                    prod *= prime;
+                }
 
-	}
+                nopfs++;
+            }
+
+            prime++;
+            pow = 0;
+
+            if (prod == num)
+                solved = true;
+        }
+
+        return nopfs;
+
+    }
 }
